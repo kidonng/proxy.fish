@@ -7,8 +7,8 @@ function set_proxy -d "(Un)set ALL_PROXY environment variable"
 
     if test -n "$argv[1]"
         set proxy $argv[1]
-    else if type -q scutil
-        set output (scutil --proxy)
+    else if command -sq scutil
+        set output (command scutil --proxy)
         if string match -eq "HTTPEnable : 1" $output
             set address (string match -r "HTTPProxy : ([\d.]+)" $output)
             set port (string match -r "HTTPPort : (\d+)" $output)
