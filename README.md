@@ -15,8 +15,13 @@ fisher install kidonng/fish-macos-proxy
 ```
 
 - Use `set_proxy` function to (un)set `ALL_PROXY`
-- `set_proxy` is executed at shell startup
-- You can also specify a proxy server as `set_proxy`'s argument
+  - `set_proxy` is executed at shell startup
+  - You can also specify a proxy server as `set_proxy`'s argument
+- Use `get_proxy` to print all proxy environment variables:
+  - `ALL_PROXY` / `all_proxy`
+  - `HTTP_PROXY` / `http_proxy`
+  - `HTTPS_PROXY` / `https_proxy`
+  - `FTP_PROXY` / `ftp_proxy`
 
 ## See also
 
