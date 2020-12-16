@@ -4,6 +4,8 @@
 
 Get, set and unset proxy environment variables with ease.
 
+This is an alternative to Oh My Fish!'s [`proxy` plugin](https://github.com/oh-my-fish/plugin-proxy).
+
 ## Usage
 
 With [Fisher](https://github.com/jorgebucaran/fisher):
@@ -22,7 +24,3 @@ fisher install kidonng/fish-proxy
   - `$proxy_vars` is `ALL_PROXY` by default, which is used by many, such as [curl](https://curl.se/) and [Homebrew](https://brew.sh/)
   - `set -U proxy_launch` to run `set_proxy` at shell startup
 - `unset_proxy` will unset environment variables in `$proxy_vars`
-
-## See also
-
-- [zsh-osx-autoproxy](https://github.com/SukkaW/zsh-osx-autoproxy)
