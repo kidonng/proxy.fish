@@ -8,6 +8,8 @@ function set_proxy -a server -d "Set proxy environment variables"
         end
     end
 
+    test -z "$server" && return
+
     for proxy in $proxy_vars
         if test "$$proxy" != $server
             set -gx $proxy $server
