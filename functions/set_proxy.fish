@@ -13,7 +13,7 @@ function set_proxy -a server -d "Set proxy environment variables"
     for proxy in $proxy_vars
         if test "$$proxy" != $server
             set -gx $proxy $server
-            printf "%s$proxy%s is set to %s$server\n" (set_color -o) (set_color normal) (set_color -o)
+            builtin printf "%s$proxy%s is set to %s$server\n" (builtin set_color -o) (builtin set_color normal) (builtin set_color -o)
         end
     end
 end
