@@ -9,6 +9,6 @@ function _proxy_uninstall --on-event proxy_uninstall
     builtin functions -e _proxy_install _proxy_uninstall
 end
 
-if set -q proxy_launch
+if status is-interactive && set -q proxy_launch
     set_proxy
 end
