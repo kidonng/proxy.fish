@@ -38,6 +38,7 @@ If a variable is already set to the specified server, it won't be changed (i.e. 
   - If you want to use different variables, for example both  `ALL_PROXY` and `HTTP_PROXY`,  run `set -U proxy_vars ALL_PROXY HTTP_PROXY`.
 - On macOS, if no server is specified, the plugin will use system proxy config (via `scutil`).
 - You can configure the plugin to run `set_proxy` on interactive shell startup by `set -U proxy_launch`.
+  - To silence the message on startup, use `set -U proxy_launch_silent`.
 
 ### `unset_proxy`
 
