@@ -19,9 +19,13 @@
   ```
 ## Usage
 
+Configure `$proxy_vars` before using the following functions, e.g. `set -U proxy_vars ALL_PROXY`.
+
 ### `get_proxy`
 
-Print the following environment variables if set:
+Print variables in `$proxy_vars` in a readable format.
+
+If `-a/--all` argument is specified, print the following variables instead:
 
 - `ALL_PROXY` / `all_proxy`
 - `HTTP_PROXY` / `http_proxy`
@@ -30,21 +34,21 @@ Print the following environment variables if set:
 
 ### `set_proxy [server]`
 
-Set environment variables in `$proxy_vars` to the specified server.
+Set (`set -gx`) variables in `$proxy_vars` to the specified server, skipping variables which has the same value.
 
-If a variable is already set to the specified server, it won't be changed (i.e. it will remain exported/unexported).
-
-- `$proxy_vars` is set to `ALL_PROXY` by default, which is used by [curl](https://curl.se/), [Homebrew](https://brew.sh/) and most other programs.
-  - If you want to use different variables, for example both  `ALL_PROXY` and `HTTP_PROXY`,  run `set -U proxy_vars ALL_PROXY HTTP_PROXY`.
 - On macOS, if no server is specified, the plugin will use system proxy config (via `scutil`).
-- You can configure the plugin to run `set_proxy` on interactive shell startup by `set -U proxy_launch`.
-  - To silence the message on startup, use `set -U proxy_launch_silent`.
+- Add the following code in `$__fish_config_dir/config.fish` to automatically set the variables.
+
+  ```fish
+  if status is-interactive && functions -q set_proxy
+      # or use bare `set_proxy` if you prefer verbosity
+      set_proxy > /dev/null
+  end
+  ```
 
 ### `unset_proxy`
 
-Unset environment variables in `$proxy_vars`.
-
-The variables will be erased, not just unexported.
+Unset (`set -e`) variables in `$proxy_vars`.
 
 ## Related
 
