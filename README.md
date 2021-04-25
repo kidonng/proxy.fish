@@ -40,7 +40,7 @@ Set (`set -gx`) variables in `$proxy_vars` to the specified server, skipping var
 - Add the following code in `$__fish_config_dir/config.fish` to automatically set the variables.
 
   ```fish
-  if status is-interactive && functions -q set_proxy
+  if status -i && functions -q set_proxy
       # or use bare `set_proxy` if you prefer verbosity
       set_proxy > /dev/null
   end
