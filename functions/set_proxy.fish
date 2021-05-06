@@ -9,7 +9,7 @@ function set_proxy -a server -d "Set proxy environment variables"
     end
 
     if test -z "$server"
-        echo Proxy server is neither detected nor specified
+        echo Proxy server is neither detected nor specified >&2
         return 1
     end
 
