@@ -34,7 +34,9 @@ If `-a/--all` argument is specified, print the following variables instead:
 
 ### `set_proxy [server]`
 
-Set (`set -gx`) variables in `$proxy_vars` to the specified server, skipping variables which has the same value.
+Set (`set -Ux`) variables in `$proxy_vars` to the specified server, skipping variables which has the same value.
+
+If `-g/--global` argument is specified, global variable scope will be used instead.
 
 - On macOS, if no server is specified, the plugin will use system proxy config (via `scutil`).
 - Add the following code in `$__fish_config_dir/config.fish` to automatically set the variables.

@@ -1,4 +1,7 @@
-function set_proxy -a server -d "Set proxy environment variables"
+function set_proxy -d "Set proxy environment variables"
+    argparse g/global -- $argv || return
+    set server $argv[1]
+
     if test -z "$server" && command -sq scutil
         set output (command scutil --proxy)
         if string match -eq "HTTPEnable : 1" $output
@@ -13,9 +16,15 @@ function set_proxy -a server -d "Set proxy environment variables"
         return 1
     end
 
+    if set -q _flag_global
+        set scope g
+    else
+        set scope U
+    end
+
     for proxy in $proxy_vars
         if test "$$proxy" != $server
-            set -gx $proxy $server
+            set -$scope -x $proxy $server
             builtin printf "%s\$$proxy%s is set to %s$server%s\n" (builtin set_color -o) (builtin set_color normal) (builtin set_color -o) (builtin set_color normal)
         end
     end
