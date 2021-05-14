@@ -1,4 +1,4 @@
-# 🐟🌐 Fish proxy
+# 🐟🌐 proxy.fish
 
 [Fish](https://fishshell.com/) plugin for querying and setting proxy environment variables.
 
@@ -9,13 +9,13 @@
 - [plug.fish](https://github.com/kidonng/plug.fish)
 
   ```sh
-  plug install kidonng/fish-proxy
+  plug install kidonng/proxy.fish
   ```
 
 - [Fisher](https://github.com/jorgebucaran/fisher)
 
   ```sh
-  fisher install kidonng/fish-proxy
+  fisher install kidonng/proxy.fish
   ```
 ## Usage
 
