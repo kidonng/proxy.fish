@@ -6,7 +6,7 @@
 
 ## Installation
 
-- [Fish plug](https://github.com/kidonng/fish-plug)
+- [plug.fish](https://github.com/kidonng/plug.fish)
 
   ```sh
   plug install kidonng/fish-proxy
