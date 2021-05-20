@@ -17,6 +17,7 @@
   ```sh
   fisher install kidonng/proxy.fish
   ```
+
 ## Usage
 
 Configure `$proxy_vars` before using the following functions, e.g. `set -U proxy_vars ALL_PROXY`.
@@ -34,23 +35,17 @@ If `-a/--all` argument is specified, print the following variables instead:
 
 ### `set_proxy [server]`
 
-Set (`set -Ux`) variables in `$proxy_vars` to the specified server, skipping variables which has the same value.
+Set variables in `$proxy_vars` to the specified server.
 
-If `-g/--global` argument is specified, global variable scope will be used instead.
+The proxy will be available across all shells. To limit the change to current shell, specify `-g/--global` option.
 
-- On macOS, if no server is specified, the plugin will use system proxy config (via `scutil`).
-- Add the following code in `$__fish_config_dir/config.fish` to automatically set the variables.
-
-  ```fish
-  if status -i && functions -q set_proxy
-      # or use bare `set_proxy` if you prefer verbosity
-      set_proxy > /dev/null
-  end
-  ```
+- On macOS, if no server is specified, the plugin will try to get it from system proxy config (via `scutil`).
 
 ### `unset_proxy`
 
-Unset (`set -e`) variables in `$proxy_vars`.
+Unset (erase) variables in `$proxy_vars`.
+
+To limit the change to current shell, specify `-g/--global` option.
 
 ## Related
 

@@ -18,6 +18,7 @@ function set_proxy -d "Set proxy environment variables"
 
     if set -q _flag_global
         set scope g
+        set message " (in current shell)"
     else
         set scope U
     end
@@ -25,7 +26,7 @@ function set_proxy -d "Set proxy environment variables"
     for proxy in $proxy_vars
         if test "$$proxy" != $server
             set -$scope -x $proxy $server
-            builtin printf "%s\$$proxy%s is set to %s$server%s\n" (builtin set_color -o) (builtin set_color normal) (builtin set_color -o) (builtin set_color normal)
+            builtin printf "%s\$$proxy%s is set to %s$server%s$message\n" (builtin set_color -o) (builtin set_color normal) (builtin set_color -o) (builtin set_color normal)
         end
     end
 end
