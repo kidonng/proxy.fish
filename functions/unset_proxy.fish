@@ -5,7 +5,7 @@ function unset_proxy -d "Unset proxy environment variables"
         if set -q $proxy
             if set -q _flag_global
                 set -gx $proxy
-                set message " (in current shell)"
+                set message " (in current session)"
             else
                 set -eg $proxy
                 set -eU $proxy

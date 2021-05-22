@@ -18,7 +18,7 @@ function set_proxy -d "Set proxy environment variables"
 
     if set -q _flag_global
         set scope g
-        set message " (in current shell)"
+        set message " (in current session)"
     else
         set scope U
     end

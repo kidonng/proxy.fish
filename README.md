@@ -37,7 +37,7 @@ If `-a/--all` argument is specified, print the following variables instead:
 
 Set variables in `$proxy_vars` to the specified server.
 
-The proxy will be available across all shells. To limit the change to current shell, specify `-g/--global` option.
+The proxy will be available across all sessions. To limit the change to current session, specify `-g/--global` option.
 
 - On macOS, if no server is specified, the plugin will try to get it from system proxy config (via `scutil`).
 
@@ -45,7 +45,7 @@ The proxy will be available across all shells. To limit the change to current sh
 
 Unset (erase) variables in `$proxy_vars`.
 
-To limit the change to current shell, specify `-g/--global` option.
+To limit the change to current session, specify `-g/--global` option.
 
 ## Related
 
