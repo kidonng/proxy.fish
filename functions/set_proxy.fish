@@ -26,7 +26,7 @@ function set_proxy -d "Set proxy environment variables"
     for proxy in $proxy_vars
         if test "$$proxy" != $server
             set -$scope -x $proxy $server
-            builtin printf "%s\$$proxy%s is set to %s$server%s$message\n" (builtin set_color -o) (builtin set_color normal) (builtin set_color -o) (builtin set_color normal)
+            echo (set_color -o)\$$proxy(set_color normal) is set to (%set_color -o)$server(set_color normal)"$message"
         end
     end
 end

@@ -11,7 +11,7 @@ function unset_proxy -d "Unset proxy environment variables"
                 set -eU $proxy
             end
 
-            builtin printf "%s\$$proxy%s is unset$message\n" (builtin set_color -o) (builtin set_color normal)
+            echo (set_color -o)\$$proxy(set_color normal) is unset"$message"
         end
     end
 end

@@ -15,9 +15,9 @@ function get_proxy -d "Get proxy environment variables"
                 set value $$variable
             end
 
-            builtin printf "%s\$$variable%s has been set to %s$value%s\n" (builtin set_color -o) (builtin set_color normal) (builtin set_color -o) (builtin set_color normal)
+            echo (set_color -o)\$$variable(set_color normal) has been set to (set_color -o)$value(set_color normal)
         else
-            builtin printf "%s\$$variable%s is not set\n" (builtin set_color -o) (builtin set_color normal)
+            echo (set_color -o)\$$variable(set_color normal) is not set
         end
     end
 end
