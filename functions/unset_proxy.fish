@@ -1,4 +1,4 @@
-function unset_proxy -d "Unset proxy environment variables"
+function unset_proxy -d "Unset proxy variables"
     argparse g/global -- $argv || return
 
     for proxy in $proxy_vars

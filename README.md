@@ -1,6 +1,6 @@
 # 🐟🌐 proxy.fish
 
-[Fish](https://fishshell.com/) plugin for querying and setting proxy environment variables.
+[Fish](https://fishshell.com/) plugin for querying and (un)setting proxy environment variables.
 
 ![Screenshot](screenshot.png)
 
@@ -20,32 +20,31 @@
 
 ## Usage
 
-Configure `$proxy_vars` before using the following functions, e.g. `set -U proxy_vars ALL_PROXY`.
+Configure desired proxy variables in `$proxy_vars` before using the following functions, e.g. `set -U proxy_vars ALL_PROXY`.
 
 ### `get_proxy`
 
-Print variables in `$proxy_vars` in a readable format.
+Display variables in `$proxy_vars` in a readable format.
 
-If `-a/--all` argument is specified, print the following variables instead:
-
-- `ALL_PROXY` / `all_proxy`
-- `HTTP_PROXY` / `http_proxy`
-- `HTTPS_PROXY` / `https_proxy`
-- `FTP_PROXY` / `ftp_proxy`
+- `-a/--all` display the following variables instead of `$proxy_vars`:
+  - `$ALL_PROXY` / `$all_proxy`
+  - `$HTTP_PROXY` / `$http_proxy`
+  - `$HTTPS_PROXY` / `$https_proxy`
+  - `$FTP_PROXY` / `$ftp_proxy`
 
 ### `set_proxy [server]`
 
-Set variables in `$proxy_vars` to the specified server.
+Set variables in `$proxy_vars` to the specified server. **This action affects all sessions.**
 
-The proxy will be available across all sessions. To limit the change to current session, specify `-g/--global` option.
-
-- On macOS, if no server is specified, the plugin will try to get it from system proxy config (via `scutil`).
+- `-g/--global` set variables in current session only.
+- If no server is specified, the plugin will try to get it from system proxy config:
+  - macOS: via `scutil`
 
 ### `unset_proxy`
 
-Unset (erase) variables in `$proxy_vars`.
+Unset (erase) variables in `$proxy_vars`. **This action affects all sessions.**
 
-To limit the change to current session, specify `-g/--global` option.
+- `-g/--global` unset variables in current session only.
 
 ## Related
 

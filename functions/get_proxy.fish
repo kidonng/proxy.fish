@@ -1,4 +1,4 @@
-function get_proxy -d "Get proxy environment variables"
+function get_proxy -d "Display proxy variables"
     argparse a/all -- $argv
 
     set -l variables

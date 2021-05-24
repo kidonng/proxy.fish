@@ -1,4 +1,4 @@
-function set_proxy -d "Set proxy environment variables"
+function set_proxy -d "Set proxy variables"
     argparse g/global -- $argv || return
     set -l server $argv[1]
 
