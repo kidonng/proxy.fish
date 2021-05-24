@@ -1,1 +1,1 @@
-complete set_proxy -x -s g -l global -d "Set variables in global scope"
+complete set_proxy -s g -l global -d "Set proxy variables in current session"

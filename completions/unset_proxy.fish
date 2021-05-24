@@ -1,1 +1,1 @@
-complete unset_proxy -x -s g -l global -d "Unset variables in global scope"
+complete unset_proxy -s g -l global -d "Unset proxy variables in current session"

@@ -3,6 +3,8 @@ function unset_proxy -d "Unset proxy environment variables"
 
     for proxy in $proxy_vars
         if set -q $proxy
+            set -l message
+
             if set -q _flag_global
                 set -gx $proxy
                 set message " (in current session)"
@@ -11,7 +13,7 @@ function unset_proxy -d "Unset proxy environment variables"
                 set -eU $proxy
             end
 
-            echo (set_color -o)\$$proxy(set_color normal) is unset"$message"
+            echo (set_color -o)'$'$proxy(set_color normal) is unset"$message"
         end
     end
 end
