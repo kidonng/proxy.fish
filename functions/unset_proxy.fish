@@ -1,5 +1,7 @@
 function unset_proxy -d "Unset proxy variables"
-    argparse g/global -- $argv || return
+    argparse a/all g/global -- $argv || return
+
+    set -q _flag_all && set -l proxy_vars ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy FTP_PROXY ftp_proxy
 
     for proxy in $proxy_vars
         if set -q $proxy

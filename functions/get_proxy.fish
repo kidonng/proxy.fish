@@ -1,23 +1,12 @@
 function get_proxy -d "Display proxy variables"
     argparse a/all -- $argv
 
-    set -l variables
+    set -q _flag_all && set -l proxy_vars ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy FTP_PROXY ftp_proxy
 
-    if set -q _flag_all
-        set variables ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy FTP_PROXY ftp_proxy
-    else
-        set variables $proxy_vars
-    end
-
-    for variable in $variables
+    for variable in $proxy_vars
         if set -q $variable
-            set -l value
-
-            if test -z "$$variable"
-                set value "(empty)"
-            else
-                set value $$variable
-            end
+            set -l value $$variable
+            test -z "$value" && set value "(empty)"
 
             echo (set_color -o)'$'$variable(set_color normal) has been set to (set_color -o)$value(set_color normal)
         else

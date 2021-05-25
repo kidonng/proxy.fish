@@ -1,11 +1,12 @@
-function set_proxy -d "Set proxy variables"
-    argparse g/global -- $argv || return
-    set -l server $argv[1]
+function set_proxy -a server -d "Set proxy variables"
+    argparse a/all g/global -- $argv || return
+
+    set -q _flag_all && set -l proxy_vars ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy FTP_PROXY ftp_proxy
 
     if test -z "$server"
         # TODO: support more OS/DE
         if command -sq scutil
-            set -l output (command scutil --proxy)
+            set -l output (scutil --proxy)
 
             if string match -eq "HTTPEnable : 1" $output
                 set -l address (string match -r "HTTPProxy : ([\d.]+)" $output)[2]
@@ -18,14 +19,12 @@ function set_proxy -d "Set proxy variables"
         end
     end
 
-    set -l scope
+    set -l scope U
     set -l message
 
     if set -q _flag_global
         set scope g
         set message " (in current session)"
-    else
-        set scope U
     end
 
     for proxy in $proxy_vars

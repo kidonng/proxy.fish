@@ -36,6 +36,7 @@ Display variables in `$proxy_vars` in a readable format.
 
 Set variables in `$proxy_vars` to the specified server. **This action affects all sessions.**
 
+- `-a/--all` set all variables listed above.
 - `-g/--global` set variables in current session only.
 - If no server is specified, the plugin will try to get it from system proxy config:
   - macOS: via `scutil`
@@ -44,6 +45,7 @@ Set variables in `$proxy_vars` to the specified server. **This action affects al
 
 Unset (erase) variables in `$proxy_vars`. **This action affects all sessions.**
 
+- `-a/--all` unset all variables listed above.
 - `-g/--global` unset variables in current session only.
 
 ## Related
