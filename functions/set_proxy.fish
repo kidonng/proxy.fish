@@ -30,7 +30,7 @@ function set_proxy -a server -d "Set proxy variables"
     for proxy in $proxy_vars
         if test "$$proxy" != $server
             set -$scope -x $proxy $server
-            echo (set_color -o)'$'$proxy(set_color normal) is set to (%set_color -o)$server(set_color normal)"$message"
+            echo (set_color -o)'$'$proxy(set_color normal) is set to (set_color -o)$server(set_color normal)"$message"
         end
     end
 end
