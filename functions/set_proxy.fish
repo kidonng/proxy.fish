@@ -19,6 +19,8 @@ function set_proxy -a server -d "Set proxy variables"
         end
     end
 
+    test -z "$server" && return
+    
     set -l scope U
     set -l message
 
